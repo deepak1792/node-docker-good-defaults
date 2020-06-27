@@ -27,6 +27,7 @@ WORKDIR /opt/node_app
 USER node
 COPY package.json package-lock.json* ./
 RUN npm install --no-optional && npm cache clean --force
+RUN npm install elastic-apm-node --save
 ENV PATH /opt/node_app/node_modules/.bin:$PATH
 
 # check every 30s to ensure this service returns HTTP 200

@@ -1,5 +1,11 @@
 // simple node web server that displays hello world
 // optimized for Docker image
+//
+
+var apm = require('elastic-apm-node').start({
+  serviceName: 'apm-server',
+  serverUrl: 'http://localhost:8200'
+})
 
 const express = require('express');
 // this example uses express web framework so we know what longer build times
